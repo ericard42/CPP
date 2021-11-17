@@ -10,8 +10,8 @@ int		ft_strlen(char *str)
 
 char	ft_toupper(char c)
 {
-	if (c <= 122 && c >= 97)
-		return (c - 32);
+	if (c <= 'z' && c >= 'a')
+		return (c - ('a' - 'A'));
 	return (c);
 }
 
@@ -19,7 +19,7 @@ int     main(int ac, char **av)
 {
 	if (ac > 1)
 	{
-		for (int i = 0; i < ac; i++)
+		for (int i = 1; i < ac; i++)
 		{
 			for (int j = 0; j < ft_strlen(av[i]); j++)
 				std::cout << ft_toupper(av[i][j]);
