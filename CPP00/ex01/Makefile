@@ -5,6 +5,7 @@ CC		=	clang++
 FLAGS	=	-Werror -Wextra -Wall -std=c++98 -I $(INCLUDE)
 
 SRCS	=	Phonebook.cpp \
+			Contact.cpp \
 
 INCLUDE = 	Contact.hpp \
 
