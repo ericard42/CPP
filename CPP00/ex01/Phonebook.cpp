@@ -47,6 +47,7 @@ void	search_input(Contact *contact)
 		index = -1;
 	else
 		index = atoi(input.c_str());
+	//Lettre fonctionne. Tenter de refaire soi-meme.
 	if (index < 0 || index > (i - 1))
 		std::cout << "This is not a valid index. Back to main menu." << std::endl;
 	else
