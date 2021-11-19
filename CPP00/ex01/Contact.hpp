@@ -20,6 +20,11 @@ class	Contact {
 		
 		bool	check_isEmpty();
 		void	add_contact();
+		void	display_contact();
+		void	display_firstName();
+		void	display_lastName();
+		void	display_nickname();
+
 };
 
 #endif
