@@ -5,7 +5,7 @@ CC		=	clang++
 FLAGS	=	-Werror -Wextra -Wall -std=c++98 -I $(INCLUDE)
 
 SRCS	=	Account.cpp \
-			test.cpp \
+			tests.cpp \
 
 INCLUDE = 	Account.hpp \
 
