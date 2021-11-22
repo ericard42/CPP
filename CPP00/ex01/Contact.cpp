@@ -15,20 +15,35 @@ bool	Contact::check_isEmpty(void)
 
 void	Contact::add_contact()
 {
-	std::cout << "First Name : ";
-	std::getline(std::cin, this->_firstName);
+	while (this->_firstName == "")
+	{
+		std::cout << "First Name : ";
+		std::getline(std::cin, this->_firstName);
+	}	
 
-	std::cout << "Last Name : ";
-	std::getline(std::cin, this->_lastName);
+	while (this->_lastName == "")
+	{
+		std::cout << "Last Name : ";
+		std::getline(std::cin, this->_lastName);
+	}
 
-	std::cout << "Nickname : ";
-	std::getline(std::cin, this->_nickname);
+	while (this->_nickname == "")
+	{
+		std::cout << "Nickname : ";
+		std::getline(std::cin, this->_nickname);
+	}
 
-	std::cout << "Phone Number : ";
-	std::getline(std::cin, this->_phoneNumber);
+	while (this->_phoneNumber == "")
+	{
+		std::cout << "Phone Number : ";
+		std::getline(std::cin, this->_phoneNumber);
+	}
 
-	std::cout << "Darkest Secret : ";
-	std::getline(std::cin, this->_darkestSecret);
+	while (this->_darkestSecret == "")
+	{
+		std::cout << "Darkest Secret : ";
+		std::getline(std::cin, this->_darkestSecret);
+	}
 
 	this->_isEmpty = false;
 }
