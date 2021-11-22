@@ -1,10 +1,52 @@
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
+
+void	Account::_displayTimestamp( void )
+{
+	time_t now = time(0);
+	tm *ltm = localtime(&now);
+	int time_now;
+
+	std::cout << "[";
+	std::cout << 1900 + ltm->tm_year;
+
+	time_now = ltm->tm_mon;
+	if (time_now / 10 == 0)
+		std::cout << "0";
+	std::cout << 1 + time_now;
+
+	time_now = ltm->tm_mday;
+	if (time_now / 10 == 0)
+		std::cout << "0";
+	std::cout << time_now;
+
+	std::cout << "_";
+
+	time_now = ltm->tm_hour;
+	if (time_now / 10 == 0)
+		std::cout << "0";
+	std::cout << time_now;
+
+	time_now = ltm->tm_min;
+	if (time_now / 10 == 0)
+		std::cout << "0";
+	std::cout << time_now;
+
+	time_now = ltm->tm_sec;
+	if (time_now / 10 == 0)
+		std::cout << "0";
+	std::cout << time_now;
+	
+	std::cout << "] ";
+
+	//std::cout << "[19920104_091532] "; //timestamp for correction
+}
 
 Account::Account( void )
 {
@@ -42,11 +84,6 @@ Account::~Account( void )
 	std::cout << "closed" << std::endl;
 }
 
-void	Account::_displayTimestamp( void )
-{
-	std::cout << "[19920104_091532] ";
-}
-
 void	Account::makeDeposit( int deposit )
 {
 	Account::_displayTimestamp();
@@ -76,7 +113,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 		this->_amount -= withdrawal;
 		this->_totalAmount -= withdrawal;
 		this->_nbWithdrawals++;
-		this->_totalNbWithdrawals--;
+		this->_totalNbWithdrawals++;
 		std::cout << "withdrawal:" << withdrawal << ";";
 		std::cout << "amount:" << this->_amount << ";";
 		std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
@@ -95,7 +132,7 @@ void	Account::displayStatus( void ) const
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "deposits:" << this->_nbDeposits << ";";
-	std::cout << "withdrawals:" << this->_nbWithdrawals << ";" << std::endl;
+	std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
 void	Account::displayAccountsInfos( void )
@@ -104,7 +141,7 @@ void	Account::displayAccountsInfos( void )
 	std::cout << "accounts:" << Account::_nbAccounts << ";";
 	std::cout << "total:" << Account::_totalAmount << ";";
 	std::cout << "deposits:" << Account::_totalNbDeposits << ";";
-	std::cout << "withdrawals:" << Account::_totalNbWithdrawals << ";" << std::endl;
+	std::cout << "withdrawals:" << Account::_totalNbWithdrawals << std::endl;
 }
 
 int	Account::getNbAccounts( void )
