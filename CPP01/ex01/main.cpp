@@ -17,4 +17,6 @@ int	main()
 	delete [] zombieHorde1;
 	std::cout << std::endl;
 	delete [] zombieHorde2;
+
+	return (0);
 }

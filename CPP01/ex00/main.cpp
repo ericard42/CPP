@@ -14,4 +14,6 @@ int		main()
 
 	randomChump("Robert");
 	delete(george);
+
+	return (0);
 }
