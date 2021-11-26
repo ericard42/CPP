@@ -9,6 +9,7 @@ std::string		myReplace(std::string str, std::string s1, std::string s2)
 		{
 			str.erase(i, s1.length());
 			str.insert(i, s2);
+			i = i + s2.length();
 		}
 	}
 
