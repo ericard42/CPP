@@ -8,8 +8,6 @@ SRCS	=	main.cpp \
 			Weapon.cpp \
 			HumanA.cpp \
 			HumanB.cpp \
-			
-INCLUDE = 	Weapon.hpp \
 
 OBJS	=	$(SRCS:.cpp=.o)
 
