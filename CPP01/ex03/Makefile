@@ -2,7 +2,7 @@ NAME	=	Weapon
 
 CC		=	c++
 
-FLAGS	=	-Werror -Wextra -Wall -std=c++98 -I $(INCLUDE)
+FLAGS	=	-Werror -Wextra -Wall -std=c++98 
 
 SRCS	=	main.cpp \
 			Weapon.cpp \
