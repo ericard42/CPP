@@ -1,4 +1,4 @@
-NAME	=	Weapon
+NAME	=	weapon
 
 CC		=	c++
 
