@@ -18,11 +18,12 @@ void	Karen::complain(std::string level)
 		&Karen::warning, 
 		&Karen::error
 	};
+	
 	std::string levels[] = {
 		"debug",
 		"info",
 		"warning",
-		"error",
+		"error"
 	};
 
 	for (int i = 0; i < 4; i++)
