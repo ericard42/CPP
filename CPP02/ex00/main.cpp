@@ -1,16 +1,16 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed (void) : _fixedValue(1)
+int	main()
 {
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-}
+	c = b;
 
-Fixed::~Fixed (void)
-{
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-}
-
-Fixed::Fixed (const Fixed &f) : _fixedValue(f._fixedValue)
-{
-
+	return (0);
 }

@@ -1,4 +1,4 @@
-NAME	=	
+NAME	=	fixed
 
 CC		=	clang++
 
