@@ -9,11 +9,11 @@ class Fixed{
 	public:
 		Fixed (void);
 		~Fixed (void);
-		Fixed (int const val);
-		Fixed (float const val);
-
 		Fixed (const Fixed &f);
 		Fixed &operator=(const Fixed &f);
+
+		Fixed (int const val);
+		Fixed (float const val);
 
 		int		getRawBits (void) const;
 		void	setRawBits (int const raw);

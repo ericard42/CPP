@@ -1,6 +1,6 @@
 NAME	=	fixed
 
-CC		=	clang++
+CC		=	c++
 
 FLAGS	=	-Werror -Wextra -Wall -std=c++98 
 
