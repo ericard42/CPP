@@ -8,7 +8,7 @@ FragTrap::FragTrap()
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	_hitpoints = 100;
-	_ennergyPoints = 100;
+	_energyPoints = 100;
 	_attackDamage = 30;
 	std::cout << "CL4P-TP <" << _name << "> has upgraded in a FR4G-TP !" << std::endl;
 }
@@ -27,7 +27,7 @@ FragTrap &FragTrap::operator=(FragTrap const &f)
 {
 	_name = f._name;
 	_attackDamage = f._attackDamage;
-	_ennergyPoints = f._ennergyPoints;
+	_energyPoints = f._energyPoints;
 	_hitpoints = f._hitpoints;
 
 	return (*this);
@@ -35,7 +35,7 @@ FragTrap &FragTrap::operator=(FragTrap const &f)
 
 void	FragTrap::attack(std::string const &target)
 {
-	if (_ennergyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "FR4G-TP <" << _name << "> don't have enough energy to attack. He takes <1> points of damage." << std::endl;
 		_hitpoints--;
@@ -43,12 +43,12 @@ void	FragTrap::attack(std::string const &target)
 			std::cout << "He's dead..." << std::endl;
 		return;
 	}
-	if (_ennergyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "FR4G-TP <" << _name << "> can't attack because he's dead..." << std::endl;
-		return;
+	return;
 	}
-	_ennergyPoints--;
+	_energyPoints--;
 	std::cout << "FR4G-TP <" << _name << "> attacks <";
 	std::cout << target << ">, causing <" << _attackDamage;
 	std::cout << "> points of damage !" << std::endl;

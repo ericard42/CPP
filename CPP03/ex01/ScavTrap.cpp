@@ -19,7 +19,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &s)
 {
 	_name = s._name;
 	_hitpoints = s._hitpoints;
-	_ennergyPoints = s._ennergyPoints;
+	_energyPoints = s._energyPoints;
 	_attackDamage = s._attackDamage;
 	return (*this);
 }
@@ -27,7 +27,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &s)
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	_hitpoints = 100;
-	_ennergyPoints = 50;
+	_energyPoints = 50;
 	_attackDamage = 20;
 
 	std::cout << "CL4P-TP <" << _name << "> has upgraded in a SC4V-TP !" << std::endl;
@@ -35,7 +35,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 void	ScavTrap::attack(std::string const &target)
 {
-	if (_ennergyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "SC4V-TP <" << _name << "> don't have enough energy to attack. He takes <1> points of damage." << std::endl;
 		_hitpoints--;
@@ -43,12 +43,12 @@ void	ScavTrap::attack(std::string const &target)
 			std::cout << "He's dead..." << std::endl;
 		return;
 	}
-	if (_ennergyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "SC4V-TP <" << _name << "> can't attack because he's dead..." << std::endl;
 		return;
 	}
-	_ennergyPoints--;
+	_energyPoints--;
 	std::cout << "SC4V-TP <" << _name << "> attacks <";
 	std::cout << target << ">, causing <" << _attackDamage;
 	std::cout << "> points of damage !" << std::endl;

@@ -8,7 +8,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
 	_hitpoints = 10;
-	_ennergyPoints = 10;
+	_energyPoints = 10;
 	_attackDamage = 0;
 	std::cout << "CL4P-TP <" << _name << "> has been summoned" << std::endl;
 }
@@ -27,14 +27,14 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &c)
 {
 	_name = c._name;
 	_hitpoints = c._hitpoints;
-	_ennergyPoints = c._ennergyPoints;
+	_energyPoints = c._energyPoints;
 	_attackDamage = c._attackDamage;
 	return (*this);
 }
 
 void	ClapTrap::attack(std::string const &target)
 {
-	if (_ennergyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "Cl4P-TP <" << _name << "> don't have enough energy to attack. He takes <1> points of damage." << std::endl;
 		_hitpoints--;
@@ -42,12 +42,12 @@ void	ClapTrap::attack(std::string const &target)
 			std::cout << "He's dead..." << std::endl;
 		return;
 	}
-	if (_ennergyPoints == 0)
+	if (_energyPoints == 0)
 	{
 		std::cout << "CL4P-TP <" << _name << "> can't attack because he's dead..." << std::endl;
 		return;
 	}
-	_ennergyPoints--;
+	_energyPoints--;
 	std::cout << "CL4P-TP <" << _name << "> attacks <";
 	std::cout << target << ">, causing <" << _attackDamage;
 	std::cout << "> points of damage !";
