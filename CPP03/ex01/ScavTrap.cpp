@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_ennergyPoints = 50;
 	_attackDamage = 20;
 
-	std::cout << "CL4P-TR4P <" << _name << "> has upgraded in a SC4V-TP !" << std::endl;
+	std::cout << "CL4P-TP <" << _name << "> has upgraded in a SC4V-TP !" << std::endl;
 }
 
 void	ScavTrap::attack(std::string const &target)
