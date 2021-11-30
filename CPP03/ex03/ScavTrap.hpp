@@ -8,7 +8,7 @@ class ScavTrap : virtual public ClapTrap {
 
 	public:
 		ScavTrap();
-		virtual ~ScavTrap();
+		~ScavTrap();
 		ScavTrap(ScavTrap const &s);
 		ScavTrap &operator=(ScavTrap const &s);
 
