@@ -5,18 +5,9 @@ ScavTrap::ScavTrap()
 
 }
 
-ScavTrap::ScavTrap(std::string name) : _name(name)
-{
-	_hitpoints = 100;
-	_ennergyPoints = 50;
-	_attackDamage = 20;
-	std::cout << "SC4V-TP <" << _name << "> has been summoned" << std::endl;
-
-}
-
 ScavTrap::~ScavTrap()
 {
-	std::cout << "SC4V-TP <" << _name << "> has been destroy" << std::endl;
+	std::cout << "SC4V-TP <" << _name << "> has downgraded in a CL4P-TP !" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &s)
@@ -31,6 +22,15 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &s)
 	_ennergyPoints = s._ennergyPoints;
 	_attackDamage = s._attackDamage;
 	return (*this);
+}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+{
+	_hitpoints = 100;
+	_ennergyPoints = 50;
+	_attackDamage = 20;
+
+	std::cout << "CL4P-TR4P <" << _name << "> has upgraded in a SC4V-TP !" << std::endl;
 }
 
 void	ScavTrap::attack(std::string const &target)
@@ -51,7 +51,7 @@ void	ScavTrap::attack(std::string const &target)
 	_ennergyPoints--;
 	std::cout << "SC4V-TP <" << _name << "> attacks <";
 	std::cout << target << ">, causing <" << _attackDamage;
-	std::cout << "> points of damage !";
+	std::cout << "> points of damage !" << std::endl;
 }
 
 void	ScavTrap::takeDamage(unsigned int amount)
@@ -85,11 +85,11 @@ void	ScavTrap::beRepaired(unsigned int amount)
 	if (amount + _hitpoints > 100)
 		amount = 100 - _hitpoints;
 	std::cout << "SC4V-TP <" << _name << "> heals <" << amount << "> points of damage !" << std::endl;
-	if (_hitpoints == 100)
+	if (_hitpoints == 10)
 		std::cout << "He's full life !" << std::endl;
 }
 
-bool	ScavTrap::isDead()
+void	ScavTrap::guardGate()
 {
-	return (_hitpoints);
+	std::cout << "SC4V-TP <" << _name << "> enterred in Gate keeper mode !" << std::endl;
 }

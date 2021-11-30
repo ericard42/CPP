@@ -18,7 +18,10 @@ class ClapTrap{
 		void	beRepaired(unsigned int amount);
 		bool	isDead();
 
-	private:
+		std::string		getName();
+		unsigned int	getAttackDamage();
+
+	protected:
 		std::string _name;
 		unsigned int	_hitpoints;
 		unsigned int	_ennergyPoints;

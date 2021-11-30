@@ -93,3 +93,13 @@ bool	ClapTrap::isDead()
 {
 	return (_hitpoints);
 }
+
+std::string	ClapTrap::getName()
+{
+	return (_name);
+}
+
+unsigned int	ClapTrap::getAttackDamage()
+{
+	return (_attackDamage);
+}
