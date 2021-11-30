@@ -15,7 +15,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::~FragTrap()
 {
-
+	std::cout << "FR4G-TP <" << _name << "> has downgraded in a CL4P-TP !" << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const &f)
