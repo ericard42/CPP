@@ -9,4 +9,6 @@ int		main()
 
 	michel.whoAmI();
 	michel.attack("Lui");
+	michel.guardGate();
+	michel.highFivesGuys();
 }

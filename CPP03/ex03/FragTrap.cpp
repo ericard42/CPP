@@ -2,7 +2,7 @@
 
 FragTrap::FragTrap()
 {
-
+	std::cout << "... And in a FR4G-TP..???" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)

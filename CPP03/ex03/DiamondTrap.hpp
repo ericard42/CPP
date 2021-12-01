@@ -5,7 +5,7 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 
 	public :
 		DiamondTrap();

@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap(std::string name) :
 	_hitpoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 30;
-	std::cout << "CL4P-TP <" << _name << "> has upgraded in a DI4MOND-TP !" << std::endl;
+	std::cout << "Oh, they merged in a DI4MOND-TP !" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &d)

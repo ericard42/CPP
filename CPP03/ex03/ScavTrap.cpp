@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap()
 {
-
+	std::cout << "CL4P-TP <" << _name << "> has upgraded in a SC4V-TP ! " << std::endl;
 }
 
 ScavTrap::~ScavTrap()
