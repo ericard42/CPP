@@ -15,6 +15,7 @@ Cat::~Cat()
 
 Cat::Cat(Cat const &c)
 {
+	std::cout << "The Animal is... a copy of a cat" << std::endl;
 	*this = c;
 }
 

@@ -21,7 +21,7 @@ Brain &Brain::operator=(Brain const &b)
 	_lastIdea = b._lastIdea;
 	for (int i = 0; i < _lastIdea; i++)
 		_ideas[i] = b._ideas[i];
-	std::cout << _lastIdea << " ideas have been copied";
+	std::cout << _lastIdea << " ideas have been copied" << std::endl;
 	return (*this);
 }
 

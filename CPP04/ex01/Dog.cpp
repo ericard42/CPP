@@ -15,6 +15,7 @@ Dog::~Dog()
 
 Dog::Dog(Dog const &d)
 {
+	std::cout << "The Animal is... a copy of a dog" << std::endl;
 	*this = d;
 }
 
