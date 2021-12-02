@@ -1,4 +1,4 @@
-NAME	=	
+NAME	=	materiacd
 
 CC		=	c++
 
@@ -7,6 +7,9 @@ FLAGS	=	-Werror -Wextra -Wall -std=c++98
 SRCS	=	main.cpp \
 			AMateria.cpp \
 			Character.cpp \
+			MateriaSource.cpp \
+			Ice.cpp \
+			Cure.cpp\
 			
 OBJS	=	$(SRCS:.cpp=.o)
 
