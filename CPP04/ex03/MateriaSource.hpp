@@ -1,5 +1,5 @@
-#ifndef CPP_MATERIASOURCE_HPP
-#define CPP_MATERIASOURCE_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
 
@@ -15,7 +15,8 @@ class MateriaSource : public IMateriaSource{
 		AMateria *createMateria(std::string const &type);
 
 	private :
+		AMateria	**_materia;
+		int 		_nbMateria;
 };
-
 
 #endif

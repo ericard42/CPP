@@ -11,7 +11,7 @@ class AMateria {
 
 	public:
 		AMateria();
-		~AMateria();
+		virtual ~AMateria();
 		AMateria(AMateria const &a);
 		AMateria &operator=(AMateria const &a)
 
