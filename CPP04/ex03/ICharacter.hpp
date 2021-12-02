@@ -1,12 +1,13 @@
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
+#include <iostream>
 #include "AMateria.hpp"
 
 class ICharacter {
 
 	public:
-		virual ~ICharacter() {}
+		virtual ~ICharacter() {}
 		
 		virtual std::string const &getName() const = 0;
 		virtual void equip(AMateria *m) = 0;

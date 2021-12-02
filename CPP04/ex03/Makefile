@@ -5,6 +5,8 @@ CC		=	c++
 FLAGS	=	-Werror -Wextra -Wall -std=c++98 
 
 SRCS	=	main.cpp \
+			AMateria.cpp \
+			Character.cpp \
 			
 OBJS	=	$(SRCS:.cpp=.o)
 
