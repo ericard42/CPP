@@ -1,4 +1,4 @@
-NAME	=	materiacd
+NAME	=	materia
 
 CC		=	c++
 

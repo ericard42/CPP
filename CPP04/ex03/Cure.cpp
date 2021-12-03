@@ -1,6 +1,6 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMataeria("cure")
+Cure::Cure() : AMateria("cure")
 {
 	
 }
@@ -17,14 +17,14 @@ Cure::Cure(Cure const &c)
 
 Cure &Cure::operator=(Cure const &c)
 {
-	_type = c.type;
+	_type = c._type;
 
 	return (*this);
 }
 
-AMataeria *Cure::clone() const
+AMateria *Cure::clone() const
 {
-	AMataeria *clone = new Cure()
+	AMateria *clone = new Cure();
 
 	*clone = *this;
 	return (clone);

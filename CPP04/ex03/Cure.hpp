@@ -11,11 +11,10 @@ class Cure : public AMateria {
 		Cure(Cure const &c);
 		Cure &operator=(Cure const &c);
 
-		AMataeria *clone() const;
+		AMateria *clone() const;
 		void use (ICharacter &target);
 
 	private :
-
-}
+};
 
 #endif

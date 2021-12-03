@@ -17,9 +17,9 @@ AMateria::AMateria(AMateria const &a)
 
 AMateria &AMateria::operator=(AMateria const &a)
 {
-	_type = a.type;
+	_type = a._type;
 
-	return (*type);
+	return (*this);
 }
 
 AMateria::AMateria(std::string const &type) : _type(type)
@@ -34,5 +34,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	
+	(void)target;
 }

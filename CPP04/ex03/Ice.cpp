@@ -1,6 +1,6 @@
 #include "Ice.hpp"
 
-Ice::Ice() : AMataeria("ice")
+Ice::Ice() : AMateria("ice")
 {
 
 }
@@ -17,14 +17,14 @@ Ice::Ice(Ice const &i)
 
 Ice &Ice::operator=(Ice const &i)
 {
-	_type = i.type;
+	_type = i._type;
 
 	return (*this);
 }
 
-AMataeria *Ice::clone() const
+AMateria *Ice::clone() const
 {
-	AMataeria *clone = new Ice();
+	AMateria *clone = new Ice();
 
 	*clone = *this;
 	return (clone);

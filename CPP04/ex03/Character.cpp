@@ -7,9 +7,10 @@ Character::Character() {
 Character::~Character() {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_materia[i])
+		if (_materia[i]) {
 			delete _materia[i];
 			_materia[i] = NULL;
+		}
 	}
 	delete _materia;
 }
@@ -19,22 +20,23 @@ Character::Character(const Character &c) {
 }
 
 Character &Character::operator=(const Character &c) {
-	_name = c.name;
+	_name = c._name;
 	_nbEquipped = 0;
-	_materia = new AMateria() *[4];
+	_materia = new AMateria *[4];
 	for (int i = 0; i < 4; i++)
 	{
 		if (_materia[i])
 			delete _materia[i];
-		_materia = c._materia[i];
+		_materia[i] = c._materia[i];
 		if (c._materia[i])
 			_nbEquipped++;
 	}
+	return (*this);
 }
 
 Character::Character(std::string name) : _name(name) {
 	_nbEquipped = 0;
-	_materia = new AMateria() *[4];
+	_materia = new AMateria *[4];
 	for (int i = 0; i > 4; i++)
 		_materia[i] = NULL;
 }

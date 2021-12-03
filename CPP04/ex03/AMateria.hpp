@@ -1,4 +1,4 @@
-#ifnedef AMATERIA_HPP
+#ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
 #include <iostream>
@@ -13,7 +13,7 @@ class AMateria {
 		AMateria();
 		virtual ~AMateria();
 		AMateria(AMateria const &a);
-		AMateria &operator=(AMateria const &a)
+		AMateria &operator=(AMateria const &a);
 
 		AMateria(std::string const &type);
 
