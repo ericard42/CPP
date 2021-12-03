@@ -1,18 +1,40 @@
 #include "Character.hpp"
 
+static AMateria **materiaInit() {
+	AMateria **ret = new AMateria *[4];
+	for (int i = 0; i < 4; i++)
+			ret[i] = NULL;
+	return ret;
+}
+
+static AMateria **materiaCopy(AMateria **src) {
+	AMateria **ret = new AMateria *[4];
+	for (int i = 0; i < 4; i++)
+		ret[i] = src[i];
+	return (ret);
+}
+
+static void materiaClean(AMateria **src) {
+	if (src)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (src[i])
+			{
+				delete src[i];
+				src[i] = NULL;
+			}
+		}
+	}
+}
+
 Character::Character() {
 
 }
 
 Character::~Character() {
-	for (int i = 0; i < 4; i++)
-	{
-		if (_materia[i]) {
-			delete _materia[i];
-			_materia[i] = NULL;
-		}
-	}
-	delete _materia;
+	materiaClean(_materia);
+	delete[] _materia;
 }
 
 Character::Character(const Character &c) {
@@ -21,24 +43,18 @@ Character::Character(const Character &c) {
 
 Character &Character::operator=(const Character &c) {
 	_name = c._name;
-	_nbEquipped = 0;
-	_materia = new AMateria *[4];
-	for (int i = 0; i < 4; i++)
-	{
-		if (_materia[i])
-			delete _materia[i];
-		_materia[i] = c._materia[i];
-		if (c._materia[i])
-			_nbEquipped++;
-	}
+	_nbEquipped = c._nbEquipped;
+
+	materiaClean(_materia);
+	delete[] _materia;
+	_materia = materiaCopy(c._materia);
+
 	return (*this);
 }
 
 Character::Character(std::string name) : _name(name) {
 	_nbEquipped = 0;
-	_materia = new AMateria *[4];
-	for (int i = 0; i > 4; i++)
-		_materia[i] = NULL;
+	_materia = materiaInit();
 }
 
 std::string const &Character::getName() const {
@@ -46,6 +62,8 @@ std::string const &Character::getName() const {
 }
 
 void Character::equip(AMateria *m) {
+	if (!m || _nbEquipped >= 4)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
 		if (!_materia[i])
@@ -60,6 +78,7 @@ void Character::equip(AMateria *m) {
 void Character::unequip(int idx) {
 	if (idx < 0 || idx > 3 || !_materia[idx])
 			return;
+	delete _materia[idx];
 	_materia[idx] = NULL;
 	_nbEquipped--;
 }
