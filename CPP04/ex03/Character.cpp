@@ -78,7 +78,6 @@ void Character::equip(AMateria *m) {
 void Character::unequip(int idx) {
 	if (idx < 0 || idx > 3 || !_materia[idx])
 			return;
-	delete _materia[idx];
 	_materia[idx] = NULL;
 	_nbEquipped--;
 }
@@ -87,5 +86,4 @@ void Character::use(int idx, ICharacter &target) {
 	if (idx < 0 || idx > 3 || !_materia[idx])
 		return ;
 	_materia[idx]->use(target);
-	unequip(idx);
 }
