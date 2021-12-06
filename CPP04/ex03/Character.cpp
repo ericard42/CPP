@@ -10,7 +10,7 @@ static AMateria **materiaInit() {
 static AMateria **materiaCopy(AMateria **src) {
 	AMateria **ret = new AMateria *[4];
 	for (int i = 0; i < 4; i++)
-		ret[i] = src[i];
+		ret[i] = src[i]->clone();
 	return (ret);
 }
 
@@ -44,11 +44,11 @@ Character::Character(const Character &c) {
 Character &Character::operator=(const Character &c) {
 	_name = c._name;
 	_nbEquipped = c._nbEquipped;
-
 	materiaClean(_materia);
 	delete[] _materia;
 	_materia = materiaCopy(c._materia);
-
+	std::cout << &c._materia << std::endl;
+	std::cout << &_materia << std::endl;
 	return (*this);
 }
 
