@@ -33,5 +33,9 @@ int		main()
 	std::cout << std::endl;
 	george->signForm(*testToLow);
 	george->signForm(*testGood);
+
+	delete george;
+	delete testToLow;
+	delete testGood;
 }
 
