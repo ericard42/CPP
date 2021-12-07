@@ -10,7 +10,12 @@ static AMateria **materiaInit() {
 static AMateria **materiaCopy(AMateria **src) {
 	AMateria **ret = new AMateria *[4];
 	for (int i = 0; i < 4; i++)
-		ret[i] = src[i]->clone();
+	{
+		if (src[i])
+			ret[i] = src[i]->clone();
+		else
+			ret[i] = NULL;
+	}
 	return (ret);
 }
 
