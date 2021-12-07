@@ -2,6 +2,7 @@
 #define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form {
 	public :
@@ -24,6 +25,8 @@ class Form {
 		Form &operator=(Form const &src);
 
 		Form(std::string const name, int const gradeToSign, int const gradeToExecute);
+
+		void beSigned(Bureaucrat const &b);
 
 		std::string const	&getName() const;
 		bool getSigned() const;

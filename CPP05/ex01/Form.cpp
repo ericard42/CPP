@@ -16,12 +16,12 @@ Form::~Form() {
 
 }
 
-Form::Form(Form const &src) _{
+Form::Form(Form const &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute){
 	*this = src;
 }
 
 Form &Form::operator=(Form const &src) {
-	_signed = src._signed;
+	_signed = src.getSigned();
 
 	return (*this);
 }
@@ -51,10 +51,16 @@ const char *Form::GradeTooHighException::what() const throw() {
 	return ("Grade is too high");
 }
 
+void Form::beSigned(Bureaucrat const &b) {
+	if (b.getGrade() > getGradeToSign())
+		throw(GradeTooLowException());
+	_signed = true;
+}
+
 std::ostream  &operator<<(std::ostream &stream, Form const &src) {
 	std::string sign = "";
-	if (!src._signed)
+	if (!src.getSigned())
 		sign = "not";
-	return (stream << "<" << src._name << "> is " << sign << "signed.\nIt need grade <" <<
-	src._gradeToSign << "> to be signed and grade <" << src._gradeToExecute << "> to be executed.");
+	return (stream << "<" << src.getName() << "> is " << sign << " signed.\nIt need grade <" <<
+	src.getGradeToSign() << "> to be signed and grade <" << src.getGradeToExecute() << "> to be executed.");
 }
