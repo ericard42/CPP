@@ -6,7 +6,6 @@
 class Form;
 
 class Bureaucrat {
-
 	public:
 		class MyException : public std::exception {
 			public :
@@ -31,6 +30,7 @@ class Bureaucrat {
 		void 	incrementGrade();
 		void 	decrementGrade();
 		void 	signForm(Form &form);
+		void 	executeForm(Form const &form);
 
 		std::string const &getName() const;
 		int 		getGrade() const;

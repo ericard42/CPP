@@ -10,7 +10,7 @@ class PresidentialPardonForm : public Form {
 		PresidentialPardonForm(PresidentialPardonForm const &src);
 		PresidentialPardonForm &operator=(PresidentialPardonForm const &src);
 
-		PresidentialPardonForm(std::string &target);
+		PresidentialPardonForm(std::string const target);
 
 		void	execute(Bureaucrat const &executor) const;
 

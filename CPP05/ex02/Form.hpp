@@ -22,13 +22,17 @@ class Form {
 			public:
 				const char *what() const throw();
 		};
+		class AlreadySigned : public MyException {
+			public:
+				const char *what() const throw();
+		};
 
 		Form();
 		virtual ~Form();
 		Form(Form const &src);
 		Form &operator=(Form const &src);
 
-		Form(std::string const name, int const gradeToSign, int const gradeToExecute);
+		Form(std::string const name, int const gradeToSign, int const gradeToExecute, std::string const target);
 
 		virtual void execute(Bureaucrat const &executor) const = 0;
 		void beSigned(Bureaucrat const &b);
@@ -37,12 +41,17 @@ class Form {
 		bool getSigned() const;
 		int	getGradeToSign() const;
 		int	getGradeToExecute() const;
+		std::string const &getTarget() const;
+
+		void setSigned(bool sign);
 
 	private :
 		bool	_signed;
 		std::string const	_name;
 		int	const _gradeToSign;
 		int	const _gradeToExecute;
+		std::string const _target;
+
 
 };
 
