@@ -10,7 +10,7 @@ public:
 	Zombie (void);
 	~Zombie (void);
 
-	bool	setName(std::string name);
+	void	setName(std::string name);
 	void	announce( void );
 
 private:

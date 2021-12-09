@@ -2,13 +2,11 @@ NAME	=	zombies
 
 CC		=	c++
 
-FLAGS	=	-Werror -Wextra -Wall -std=c++98 -I $(INCLUDE)
+FLAGS	=	-Werror -Wextra -Wall -std=c++98
 
 SRCS	=	main.cpp \
 			Zombie.cpp \
 			ZombieHorde.cpp \
-
-INCLUDE = 	Zombie.hpp \
 
 OBJS	=	$(SRCS:.cpp=.o)
 
