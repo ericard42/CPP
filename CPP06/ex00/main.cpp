@@ -1,11 +1,12 @@
 #include <iostream>
 #include <sstream>
 #include <climits>
+#include <cfloat>
 
 void	displayChar(char c, long valNb, bool fail)
 {
 	std::cout << "char: ";
-	if ((c < 32 || c > 126) && !fail)
+	if ((c < 32 || c > 126) && (c < 9 || c > 12) && !fail)
 		std::cout << "Non displayable";
 	else if (valNb >= CHAR_MAX || valNb <= CHAR_MIN || fail)
 		std::cout << "impossible";
@@ -24,7 +25,7 @@ void	displayInt(int i, long valNb, bool fail)
 	std::cout << std::endl;
 }
 
-void 	displayFloat(std::string const str, float nbr, bool fail)
+void 	displayFloat(std::string const str, float nbr, double valDb, bool fail)
 {
 	std::cout << "float: ";
 	if (str == "inf" || str == "inff")
@@ -33,7 +34,7 @@ void 	displayFloat(std::string const str, float nbr, bool fail)
 		std::cout << "-inff";
 	else if (str == "nan" || str == "nanf")
 		std::cout << "nanf";
-	else if (fail)
+	else if (valDb > FLT_MAX || valDb < FLT_MIN || fail)
 		std::cout << "impossible";
 	else
 		std::cout << nbr << "f";
@@ -56,6 +57,31 @@ void 	displayDouble(std::string const str, double nbr, bool fail)
 	std::cout << std::endl;
 }
 
+void convertWhiteSpace(std::string *str)
+{
+	std::string tabWhiteSpace[] = {
+			" ",
+			"\t",
+			"\n",
+			"\v",
+			"\f"
+		};
+	std::string 	tabValInt[] = {
+			"32",
+			"9",
+			"10",
+			"11",
+			"12"
+	};
+	for (int i = 0; i < 5; i++)
+	{
+		if (*str == tabWhiteSpace[i]) {
+			*str = tabValInt[i];
+			break ;
+		}
+	}
+}
+
 int	main(int ac, char **av)
 {
 	if (ac != 2)
@@ -65,12 +91,14 @@ int	main(int ac, char **av)
 	}
 
 	std::string str = static_cast<std::string>(av[1]);
+	convertWhiteSpace(&str);
 	std::istringstream i(str);
 	double strDouble;
 	i >> strDouble;
 
+
 	displayChar(static_cast<char>(strDouble), static_cast<long>(strDouble), i.fail());
 	displayInt(static_cast<int>(strDouble), static_cast<long>(strDouble), i.fail());
-	displayFloat(str, static_cast<float>(strDouble), i.fail());
+	displayFloat(str, static_cast<float>(strDouble), strDouble, i.fail());
 	displayDouble(str, strDouble, i.fail());
 }
