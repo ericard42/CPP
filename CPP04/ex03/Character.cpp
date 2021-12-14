@@ -67,6 +67,8 @@ void Character::equip(AMateria *m) {
 		return ;
 	for (int i = 0; i < 4; i++)
 	{
+		if (_materia[i] == m)
+			return ;
 		if (!_materia[i])
 		{
 			_materia[i] = m;
