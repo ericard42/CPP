@@ -18,7 +18,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
 	return (*this);
 }
 
-Bureaucrat::Bureaucrat(std::string const name, int note) : _name(name), _grade(note) {
+Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade) {
 	if (_grade > 150)
 		throw (GradeTooLowException());
 	else if (_grade < 1)

@@ -24,7 +24,7 @@ class Bureaucrat {
 		Bureaucrat(Bureaucrat const &src);
 		Bureaucrat &operator=(Bureaucrat const &src);
 
-		Bureaucrat(std::string const name, int note);
+		Bureaucrat(std::string const name, int grade);
 
 		void 	incrementGrade();
 		void 	decrementGrade();
