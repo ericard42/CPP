@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define MAX_VAL 750
-int main(int, char**)
+/*int main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
@@ -51,4 +51,38 @@ int main(int, char**)
 	}
 	delete [] mirror;//
 	return 0;
+}*/
+
+int main()
+{
+	Array<int> num(5);
+	Array<int> test1 = num;
+
+	try {
+		for (int i = 0; i < 5; i++)
+			num[i] = i;
+		for (int i = 0; i < 5; i++)
+			test1[i] = i + 1;
+	}
+	catch(const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	Array<int> test2(num);
+
+	std::cout << &num << std::endl;
+	std::cout << &test1 << std::endl;
+	std::cout << &test2 << "\n" << std::endl;
+
+	try {
+		for (int i = 0; i < 5; i++) {
+			std::cout << num[i] << std::endl;
+			std::cout << test1[i] << std::endl;
+			std::cout << test2[i] << "\n" << std::endl;
+		}
+	}
+	catch(const std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
 }
