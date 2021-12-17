@@ -6,13 +6,10 @@
 template <class T>
 class Array {
 	public :
-		Array() {
-			_tab = new T[0];
-			_len = 0;
+		Array() : _len(0), _tab(NULL) {
 		}
-		Array(unsigned int n) {
-			_tab = new T[n];
-			_len = n;
+		Array(unsigned int n) : _len(n) {
+			_tab = new T[_len];
 		}
 		~Array() {
 			delete[] _tab;
@@ -40,8 +37,8 @@ class Array {
 		}
 
 	private :
-		T	*_tab;
 		int	_len;
+		T	*_tab;
 
 };
 
