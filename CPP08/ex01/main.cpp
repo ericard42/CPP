@@ -3,6 +3,7 @@
 
 int main() {
 	{
+		std::cout << "With 5 numbers" << std::endl;
 		Span sp = Span(5);
 
 		try {
@@ -11,7 +12,7 @@ int main() {
 				sp.shortestSpan();
 			}
 			catch (std::exception &e) {
-				std::cout << e.what() << std::endl;
+				std::cout << "ERROR : " << e.what() << std::endl;
 			}
 			sp.addNumber(3);
 			sp.addNumber(17);
@@ -20,19 +21,37 @@ int main() {
 			sp.addNumber(5);
 		}
 		catch (std::exception &e) {
-			std::cout << e.what() << std::endl;
+			std::cout << "ERROR : " << e.what() << std::endl;
 		}
 
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "\tShortest : " << sp.shortestSpan() << std::endl;
+		std::cout << "\tLongest : " << sp.longestSpan() << std::endl;
 	}
 	{
-		Span sp = Span(10000);
-		std::vector<int> lot(10000, 42);
-		lot.at(4242) = 10;
+		std::cout << "With 10000 numbers" << std::endl;
 
-		sp.addNumbers(lot.begin(), lot.end());
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		Span sp = Span(10000);
+		std::vector<int> lot(10001, 42);
+		lot.at(4242) = 10;
+		lot.at (32) = 400;
+
+		try {
+			sp.addNumbers(lot.begin(), lot.end());
+		}
+		catch (std::exception &e) {
+			std::cout << "ERROR : " << e.what() << std::endl;
+		}
+
+		lot.pop_back();
+
+		try {
+			sp.addNumbers(lot.begin(), lot.end());
+		}
+		catch (std::exception &e) {
+			std::cout << "ERROR : " << e.what() << std::endl;
+		}
+
+		std::cout << "\tShortest : " << sp.shortestSpan() << std::endl;
+		std::cout << "\tLongest : " << sp.longestSpan() << std::endl;
 	}
 }

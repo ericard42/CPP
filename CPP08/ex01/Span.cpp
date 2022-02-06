@@ -25,17 +25,22 @@ unsigned int	Span::shortestSpan() {
 	if (_numbers.size() <= 1)
 		throw std::length_error("you need at least 2 value");
 
-	std::sort(_numbers.begin(), _numbers.end());
-	int min = _numbers.at(1) - _numbers.front();
-	for (unsigned int i = 1; i < _numbers.size() - 1; i++)
-		if ((_numbers.at(i) - _numbers.at(i - 1)) < min)
-			min = _numbers.at(i) - _numbers.at(i - 1);
+	std::vector<int> cp = _numbers;
+	
+	std::sort(cp.begin(), cp.end());
+	int min = cp.at(1) - cp.front();
+	for (unsigned int i = 1; i < cp.size() - 1; i++)
+		if ((cp.at(i) - cp.at(i - 1)) < min)
+			min = cp.at(i) - cp.at(i - 1);
 	return (min);
 }
 
 unsigned int	Span::longestSpan() {
 	if (_numbers.size() <= 1)
 		throw std::length_error("you need at least 2 value");
-	std::sort(_numbers.begin(), _numbers.end());
-	return (_numbers.back() - _numbers.front());
+	
+	std::vector<int> cp = _numbers;
+
+	std::sort(cp.begin(), cp.end());
+	return (cp.back() - cp.front());
 }
