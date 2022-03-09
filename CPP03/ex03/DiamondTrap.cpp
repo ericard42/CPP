@@ -1,8 +1,13 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() :
+	ClapTrap("_clap_name"), ScavTrap(""), FragTrap("")
 {
-
+	_name = "";
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
+	std::cout << "Oh, they merged in a DI4MOND-TP !" << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
@@ -11,12 +16,12 @@ DiamondTrap::~DiamondTrap()
 }
 
 DiamondTrap::DiamondTrap(std::string name) :
-	ClapTrap(name + "_clap_name")
+	ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap()
 {
 	_name = name;
-	_hitpoints = 100;
-	_energyPoints = 50;
-	_attackDamage = 30;
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 	std::cout << "Oh, they merged in a DI4MOND-TP !" << std::endl;
 }
 
@@ -28,7 +33,7 @@ DiamondTrap::DiamondTrap(DiamondTrap const &d)
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &d)
 {
 	_name = d._name;
-	_hitpoints = d._hitpoints;
+	_hitPoints = d._hitPoints;
 	_energyPoints = d._energyPoints;
 	_attackDamage = d._attackDamage;
 

@@ -8,7 +8,7 @@ int		main()
 	{
 		maurice->attack("Robert");
 		maurice->beRepaired(1);
-		maurice->takeDamage(2);
+		maurice->takeDamage(4);
 		if (maurice->isDead() == 0)
 		{
 			delete(maurice);
