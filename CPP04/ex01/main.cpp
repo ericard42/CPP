@@ -7,7 +7,7 @@ int main()
 {
 	const Animal *animals[2];
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (i % 2)
 			animals[i] = new Dog();
@@ -19,16 +19,20 @@ int main()
 	animals[1]->getBrain()->addIdea("potato");
 	animals[1]->getBrain()->addIdea("oh, my minion");
 	animals[1]->getBrain()->addIdea("*yawn*");
-	animals[0]->getBrain()->addIdea("oh, squirrel");
-	animals[0]->getBrain()->addIdea("oh, my master !");
+	animals[2]->getBrain()->addIdea("oh, squirrel");
+	animals[2]->getBrain()->addIdea("oh, my master !");
 
-	animals[1]->getBrain()->displayIdeas();
-	std::cout << std::endl;
 	animals[0]->getBrain()->displayIdeas();
 	std::cout << std::endl;
+	animals[1]->getBrain()->displayIdeas();
+	std::cout << std::endl;
+	animals[2]->getBrain()->displayIdeas();
+	std::cout << std::endl;
+	animals[3]->getBrain()->displayIdeas();
+	std::cout << std::endl;
 
 	std::cout << std::endl;
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 4; i++)
 		delete animals[i];
 	std::cout << std::endl;
 

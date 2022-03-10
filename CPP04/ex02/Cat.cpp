@@ -3,8 +3,8 @@
 Cat::Cat()
 {
 	_brain = new Brain();
-	_type = "Cat";
-	std::cout << "The animal is... a " << _type << std::endl;
+	type = "Cat";
+	std::cout << "The animal is... a " << type << std::endl;
 }
 
 Cat::~Cat()
@@ -21,7 +21,7 @@ Cat::Cat(Cat const &c)
 
 Cat &Cat::operator=(Cat const &c)
 {
-	_type = c._type;
+	type = c.type;
 	_brain = new Brain(*c._brain);
 	return (*this);
 }

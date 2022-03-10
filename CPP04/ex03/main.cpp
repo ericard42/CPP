@@ -9,25 +9,53 @@
 int		main()
 {
 	IMateriaSource* src = new MateriaSource();
+
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	AMateria* ice;
+	AMateria* cure;
+	AMateria* other;
+	ice = src->createMateria("ice");
+	me->equip(ice);
+	cure = src->createMateria("cure");
+	me->equip(cure);
+	other = src->createMateria("other");
+	me->equip(other);
 
 	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(2, *bob);
+
+	me->unequip(2);
+	me->unequip(0);
+	bob->equip(ice);
+	bob->use(0, *me);
+
+	*bob = *me;
 
 	delete bob;
 	delete me;
 	delete src;
+
+	Character *patate = new Character("Patate");
+	Character *george = new Character("George");
+
+	IMateriaSource *test = new MateriaSource;
+	test->learnMateria(new Ice());
+	AMateria *ice2;
+	ice2 = test->createMateria("ice");
+	patate->equip(ice2);
+
+	*george = *patate;
+
+	delete patate;
+	delete george;
+	delete test;
 
 	return 0;
 }

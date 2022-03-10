@@ -17,13 +17,13 @@ WrongAnimal::WrongAnimal(WrongAnimal const &w)
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &w)
 {
-	_type = w._type;
+	type = w.type;
 	return (*this);
 }
 
 std::string WrongAnimal::getType() const
 {
-	return (_type);
+	return (type);
 }
 
 void	WrongAnimal::makeSound() const

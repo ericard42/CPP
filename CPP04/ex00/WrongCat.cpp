@@ -2,8 +2,8 @@
 
 WrongCat::WrongCat()
 {
-	_type = "Wrong Cat";
-	std::cout << "The wrong animal is... a " << _type << std::endl;
+	type = "Wrong Cat";
+	std::cout << "The wrong animal is... a " << type << std::endl;
 }
 
 WrongCat::~WrongCat()
@@ -18,7 +18,7 @@ WrongCat::WrongCat(WrongCat const &w)
 
 WrongCat &WrongCat::operator=(WrongCat const &w)
 {
-	_type = w._type;
+	type = w.type;
 	return (*this);
 }
 

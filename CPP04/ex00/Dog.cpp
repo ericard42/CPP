@@ -2,8 +2,8 @@
 
 Dog::Dog()
 {
-	_type = "Dog";
-	std::cout << "The animal is... a " << _type << std::endl;
+	type = "Dog";
+	std::cout << "The animal is... a " << type << std::endl;
 }
 
 Dog::~Dog()
@@ -18,7 +18,7 @@ Dog::Dog(Dog const &d)
 
 Dog &Dog::operator=(Dog const &d)
 {
-	_type = d._type;
+	type = d.type;
 	return (*this);
 }
 

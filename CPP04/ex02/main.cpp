@@ -3,7 +3,7 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-// # define TEST_ERROR
+//# define TEST_ERROR
 
 int main()
 {

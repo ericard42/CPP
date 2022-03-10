@@ -1,46 +1,17 @@
 #include "MateriaSource.hpp"
 
-static AMateria **materiaInit() {
-	AMateria **ret = new AMateria *[4];
-	for (int i = 0; i < 4; i++)
-		ret[i] = NULL;
-	return ret;
-}
-
-static AMateria **materiaCopy(AMateria **src) {
-	AMateria **ret = new AMateria *[4];
-	for (int i = 0; i < 4; i++)
-	{
-		if (src[i])
-			ret[i] = src[i]->clone();
-		else
-			ret[i] = NULL;
-	}
-	return (ret);
-}
-
-static void materiaClean(AMateria **src) {
-	if (src)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			if (src[i])
-			{
-				delete src[i];
-				src[i] = NULL;
-			}
-		}
-	}
-}
-
 MateriaSource::MateriaSource() {
-	_materia = materiaInit();
+	for (int i = 0; i < 4; i++)
+		_materia[i] = NULL;
 	_nbMateria = 0;
 }
 
 MateriaSource::~MateriaSource() {
-	materiaClean(_materia);
-	delete[] _materia;
+	for (int i = 0; i < 4; i++)
+	{
+		if (_materia[i])
+			delete _materia[i];
+	}
 }
 
 MateriaSource::MateriaSource(MateriaSource const &m) {
@@ -50,10 +21,15 @@ MateriaSource::MateriaSource(MateriaSource const &m) {
 MateriaSource &MateriaSource::operator=(const MateriaSource &m) {
 	_nbMateria = m._nbMateria;
 
-	materiaClean(_materia);
-	delete[] _materia;
-	_materia = materiaCopy(m._materia);
-
+	for (int i = 0; i < 4; i++)
+	{
+		if (_materia[i])
+			delete _materia[i];
+		if (m._materia[i])
+			_materia[i] = m._materia[i]->clone();
+		else
+			_materia[i] = NULL;
+	}
 	return (*this);
 }
 
@@ -77,5 +53,5 @@ AMateria *MateriaSource::createMateria(const std::string &type) {
 		if (_materia[i] && _materia[i]->getType() == type)
 			return (_materia[i]->clone());
 	}
-	return NULL;
+	return 0;
 }

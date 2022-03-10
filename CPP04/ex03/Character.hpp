@@ -21,7 +21,7 @@ class Character : public ICharacter {
 
     private :
         std::string _name;
-        AMateria	**_materia;
+        AMateria	*_materia[4];
 		int 		_nbEquipped;
 
 };
