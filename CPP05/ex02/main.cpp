@@ -10,7 +10,7 @@ void 	testingShrubberyCreation(Bureaucrat &george, Bureaucrat &bigBoss) {
 	Form *shrubberyForm;
 
 	try {
-		shrubberyForm = new ShrubberyCreationForm("Maurice");
+		shrubberyForm = new ShrubberyCreationForm("garden");
 		std::cout << *shrubberyForm << std::endl;
 	}
 	catch (std::exception const &e) {
@@ -19,7 +19,7 @@ void 	testingShrubberyCreation(Bureaucrat &george, Bureaucrat &bigBoss) {
 	george.signForm(*shrubberyForm);
 	bigBoss.executeForm(*shrubberyForm);
 	bigBoss.signForm(*shrubberyForm);
-	bigBoss.signForm(*shrubberyForm);
+	george.executeForm(*shrubberyForm);
 	bigBoss.executeForm(*shrubberyForm);
 
 	delete shrubberyForm;
@@ -38,7 +38,7 @@ void 	testingRobotomyRequest(Bureaucrat &george, Bureaucrat &bigBoss) {
 	george.signForm(*robotomyForm);
 	bigBoss.executeForm(*robotomyForm);
 	bigBoss.signForm(*robotomyForm);
-	bigBoss.signForm(*robotomyForm);
+	george.executeForm(*robotomyForm);
 	bigBoss.executeForm(*robotomyForm);
 
 	delete robotomyForm;
@@ -58,7 +58,7 @@ void 	testingPresidentialPardon(Bureaucrat &george, Bureaucrat &bigBoss) {
 	george.signForm(*presidentialForm);
 	bigBoss.executeForm(*presidentialForm);
 	bigBoss.signForm(*presidentialForm);
-	bigBoss.signForm(*presidentialForm);
+	george.executeForm(*presidentialForm);
 	bigBoss.executeForm(*presidentialForm);
 
 	delete presidentialForm;

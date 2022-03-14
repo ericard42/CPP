@@ -40,7 +40,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 		throw(GradeTooLowException());
 	if (!getSigned())
 		throw(NotSigned());
-	std::ofstream	newFile(std::string(std::string(getTarget()) + "_shrubbery").c_str());
+	std::string name(getTarget() + "_shrubbery");
+	std::ofstream	newFile(name.c_str());
 	newFile << tree << std::endl;
 	newFile.close();
 	std::cout << getTarget() << "_shrubbery has been created !" << std::endl;

@@ -18,6 +18,10 @@ class Form {
 			public:
 				const char *what() const throw();
 		};
+		class AlreadySignedException : public MyException {
+			public:
+				const char *what() const throw();
+		};
 
 		Form();
 		~Form();

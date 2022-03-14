@@ -61,7 +61,7 @@ const char *Form::NotSigned::what() const throw() {
 }
 
 const char *Form::AlreadySigned::what() const throw() {
-	return ("Form already signed");
+	return ("Form is already signed");
 }
 
 void Form::beSigned(Bureaucrat const &b) {

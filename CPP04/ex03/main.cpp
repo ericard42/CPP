@@ -42,18 +42,19 @@ int		main()
 	delete me;
 	delete src;
 
-	Character *patate = new Character("Patate");
+	Character *robert = new Character("Robert");
 	Character *george = new Character("George");
 
 	IMateriaSource *test = new MateriaSource;
 	test->learnMateria(new Ice());
 	AMateria *ice2;
 	ice2 = test->createMateria("ice");
-	patate->equip(ice2);
+	robert->equip(ice2);
 
-	*george = *patate;
+	*george = *robert;
+	george->use(0, *robert);
 
-	delete patate;
+	delete robert;
 	delete george;
 	delete test;
 

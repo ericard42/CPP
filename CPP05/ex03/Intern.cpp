@@ -31,12 +31,12 @@ static Form *makeRobotomyRequestForm(std::string target) {
 }
 
 Form *Intern::makeForm(std::string nameForm, std::string targetForm) const {
-	std::string type[] = {
+	static std::string type[] = {
 			"shrubbery creation",
 			"robotomy request",
 			"presidential pardon"
 	};
-	Form *(*actions[])(std::string const target) = {
+	static Form *(*actions[])(std::string const target) = {
 			makeShrubberyCreationForm,
 			makeRobotomyRequestForm,
 			makePresidentialPardonForm

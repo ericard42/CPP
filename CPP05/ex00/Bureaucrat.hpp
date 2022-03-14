@@ -38,6 +38,6 @@ class Bureaucrat {
 
 };
 
-std::ostream &operator<<(std::ostream &stram, Bureaucrat const &src);
+std::ostream &operator<<(std::ostream &stream, Bureaucrat const &src);
 
 #endif

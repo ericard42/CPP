@@ -4,6 +4,7 @@ int		main()
 {
 	std::cout << "<TESTING CREATE>" << std::endl;
 	std::cout << std::endl;
+
 	try {
 		Bureaucrat robert("Robert", 130);
 		std::cout << robert << std::endl;
@@ -26,6 +27,7 @@ int		main()
 		std::cerr << "ERROR WITH MAURICE : " << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+
 	std::cout << "<TESTING DECREMENTATION>" << std::endl;
 	std::cout << std::endl;
 	try {
@@ -58,6 +60,8 @@ int		main()
 		std::cerr << "ERROR WITH PIERRE : " << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+
+
 	std::cout << "<TESTING INCREMENTATION>" << std::endl;
 	std::cout << std::endl;
 	try {

@@ -52,7 +52,6 @@ class Form {
 		int	const _gradeToExecute;
 		std::string const _target;
 
-
 };
 
 std::ostream &operator<<(std::ostream &stream, Form const &src);

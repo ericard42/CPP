@@ -10,16 +10,8 @@
 int		main()
 {
 	srand((unsigned)time(NULL));
-	Bureaucrat *george;
 	Bureaucrat *bigBoss;
 
-	try {
-		george = new Bureaucrat("George", 150);
-		std::cout << *george << std::endl;
-	}
-	catch (std::exception const &e) {
-		std::cout << "ERROR : " << e.what() << std::endl;
-	}
 	try {
 		bigBoss = new Bureaucrat("BigBoss", 1);
 		std::cout << *bigBoss << std::endl;
@@ -29,13 +21,23 @@ int		main()
 	}
 
 	Intern noName;
-	Form *newForm;
+	Form *robotomyForm = NULL;
+	Form *shrubberyForm = NULL;
+	Form *presidentialForm = NULL;
+	Form *noForm = NULL;
 
-	newForm = noName.makeForm("robotomy request", "Maurice");
-	george->signForm(*newForm);
+	robotomyForm = noName.makeForm("robotomy request", "Maurice");
+	shrubberyForm = noName.makeForm("shrubbery creation", "garden");
+	presidentialForm = noName.makeForm("presidential pardon", "Maurice");
+	noForm = noName.makeForm("Potato", "me");
 
-	delete newForm;
-	delete george;
+	bigBoss->signForm(*presidentialForm);
+	bigBoss->executeForm(*presidentialForm);
+
+	delete robotomyForm;
+	delete shrubberyForm;
+	delete presidentialForm;
+	delete noForm;
 	delete bigBoss;
 }
 
