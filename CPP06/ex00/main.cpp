@@ -39,3 +39,5 @@ int	main(int ac, char **av)
 	displayFloat(str, static_cast<float>(strDouble), strDouble, fail);
 	displayDouble(str, strDouble, fail);
 }
+
+//Static_cast -> Convertir des types de la même hiérarchie de classes ou de types numériques entre eux.
