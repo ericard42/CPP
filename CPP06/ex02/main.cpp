@@ -9,26 +9,34 @@ Base *generate(void)
 {
 	switch (rand() % 3)
 	{
-		case 0 : return (new A);
-		case 1 : return (new B);
-		default : return (new C);
+		case 0 :
+				std::cout << "Generate A" << std::endl;
+				return (new A);
+		case 1 :
+				std::cout << "Generate B" << std::endl;
+				return (new B);
+		default :
+				std::cout << "Generate C" << std::endl;
+				return (new C);
 	}
 }
 
 void	identify(Base *p)
 {
-	A *a;
-	if ((a = dynamic_cast<A*>(p))) {
+	//Retourne NULL si le cast ne fonctionne pas (Pointeur)
+
+	Base *base = dynamic_cast<A*>(p);
+	if (base != NULL) {
 		std::cout << "It's A" << std::endl;
 		return ;
 	}
-	B *b;
-	if ((b = dynamic_cast<B*>(p))) {
+	base = dynamic_cast<B*>(p);
+	if (base != NULL) {
 		std::cout << "It's B" << std::endl;
 		return;
 	}
-	C *c;
-	if ((c = dynamic_cast<C*>(p))) {
+	base = dynamic_cast<C*>(p);
+	if (base != NULL) {
 		std::cout << "It's C" << std::endl;
 		return ;
 	}
@@ -36,34 +44,33 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
+	//Lève une exception si le cast ne fonctionne pas (Référence)
+
 	try {
 		A &a = dynamic_cast<A&>(p);
 		(void)a;
-		std::cout << "It's A";
+		std::cout << "It's A" << std::endl;
 		return ;
 	}
 	catch (std::exception &e) {
-		(void)e;
 	}
 
 	try {
 		B &b = dynamic_cast<B&>(p);
 		(void)b;
-		std::cout << "It's B";
+		std::cout << "It's B" << std::endl;
 		return ;
 	}
 	catch (std::exception &e) {
-		(void)e;
 	}
 
 	try {
 		C &c = dynamic_cast<C&>(p);
 		(void)c;
-		std::cout << "It's C";
+		std::cout << "It's C" << std::endl;
 		return ;
 	}
 	catch (std::exception &e) {
-		(void)e;
 	}
 }
 
@@ -78,3 +85,6 @@ int	main()
 	identify(*random);
 	delete random;
 }
+
+//Ne convertit QUE les pointeurs (Ou référence) entre eux.
+//Permet de convertir entre les héritages d'une classe.

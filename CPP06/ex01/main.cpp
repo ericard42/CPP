@@ -35,4 +35,5 @@ int main()
 	delete ptr;
 }
 
-//reinterpret_cast -> Permet de convertir différents types de pointeurs.
+//reinterpret_cast -> Permet de convertir différents types de pointeurs sans sécurité.
+//Pas nécessairement de lien entre les types.
