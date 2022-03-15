@@ -34,3 +34,5 @@ int main()
 
 	delete ptr;
 }
+
+//reinterpret_cast -> Permet de convertir différents types de pointeurs.
