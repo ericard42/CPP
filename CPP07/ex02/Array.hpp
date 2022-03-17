@@ -11,14 +11,15 @@ class Array {
 		~Array();
 		Array(Array const &src);
 
-		T	&operator[](int i) const;
 		Array &operator=(Array const &src);
+		T	&operator[](int i) const;
 
 		int	size() const;
 
 	private :
 		int	_len;
 		T	*_tab;
+		bool _isTab;
 
 };
 

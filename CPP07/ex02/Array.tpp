@@ -9,11 +9,15 @@
 TEMPLATE
 Array<T>::Array() : _len(0) {
 	_tab = new T[0];
+	_isTab = true;
 }
 
 TEMPLATE
 Array<T>::Array(unsigned int n) : _len(n) {
+	if (n < 0)
+		throw std::overflow_error("Wrong Size");
 	_tab = new T[_len];
+	_isTab = true;
 }
 
 TEMPLATE
@@ -23,6 +27,7 @@ Array<T>::~Array() {
 
 TEMPLATE
 Array<T>::Array(Array<T> const &src) {
+	_isTab = false;
 	*this = src;
 }
 
@@ -35,6 +40,10 @@ T &Array<T>::operator[](int i) const {
 
 TEMPLATE
 Array<T> &Array<T>::operator=(Array<T> const &src) {
+	if (this == &src)
+		return *this;
+	if (_isTab == true)
+		delete[] _tab;
 	_len = src.size();
 	_tab = new T[_len];
 	for (int i = 0; i < _len; i++)
