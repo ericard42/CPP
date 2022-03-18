@@ -12,11 +12,11 @@ class Span {
 		Span(Span const &src);
 		Span &operator=(Span const &src);
 
-		void			addNumber(const int n);
+		void				addNumber(const int n);
 		unsigned int		shortestSpan();
 		unsigned int		longestSpan();
 
-		template<class it>
+		template<typename it>
 		void addNumbers(const it start, const it end) {
 			if (std::distance(start, end) + _numbers.size() > _max)
 				throw std::out_of_range("too many values");

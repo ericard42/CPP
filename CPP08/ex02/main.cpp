@@ -29,41 +29,43 @@ int	main() {
 
 		std::cout << "Content :" << std::endl;
 		while (it != ite) {
-			std::cout << "\t " <<  *it << std::endl;
+			std::cout << *it << " | ";
 			++it;
 		}
+		std::cout << std::endl;
 
 		std::stack<int> s(mstack);
 	}
 	{
-		std::cout << "--- LIST ---" << std::endl;
-		std::list<int> mstack;
+		std::cout << "\n--- LIST ---" << std::endl;
+		std::list<int> list;
 
-		mstack.push_back(5);
-		mstack.push_back(17);
+		list.push_back(5);
+		list.push_back(17);
 
-		std::cout << "Top :\t" << mstack.back() << std::endl;
+		std::cout << "Top :\t" << list.back() << std::endl;
 
-		mstack.pop_back();
+		list.pop_back();
 
-		std::cout << "Size :\t" << mstack.size() << std::endl;
+		std::cout << "Size :\t" << list.size() << std::endl;
 
-		mstack.push_back(3);
-		mstack.push_back(5);
-		mstack.push_back(737);
-		mstack.push_back(0);
+		list.push_back(3);
+		list.push_back(5);
+		list.push_back(737);
+		list.push_back(0);
 
-		std::list<int>::iterator it = mstack.begin();
-		std::list<int>::iterator ite = mstack.end();
+		std::list<int>::iterator it = list.begin();
+		std::list<int>::iterator ite = list.end();
 
 		++it;
 		--it;
 
 		std::cout << "Content :" << std::endl;
 		while (it != ite) {
-			std::cout << "\t " <<  *it << std::endl;
+			std::cout << *it << " | ";
 			++it;
 		}
+		std::cout << std::endl;
 	}
 	return 0;
 }

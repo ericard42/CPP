@@ -1,5 +1,6 @@
 #include "Span.hpp"
 #include <iostream>
+#include <algorithm>
 
 Span::Span() : _max(0) {}
 Span::Span(unsigned int max) : _max(max) {}

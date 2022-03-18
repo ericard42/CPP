@@ -28,5 +28,6 @@ template <typename type>
 	private :
 };
 
+//Doc -> https://en.cppreference.com/w/cpp/container/stack
 
 #endif

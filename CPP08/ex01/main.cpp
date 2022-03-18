@@ -24,8 +24,13 @@ int main() {
 			std::cout << "ERROR : " << e.what() << std::endl;
 		}
 
-		std::cout << "\tShortest : " << sp.shortestSpan() << std::endl;
-		std::cout << "\tLongest : " << sp.longestSpan() << std::endl;
+		try {
+			std::cout << "\tShortest : " << sp.shortestSpan() << std::endl;
+			std::cout << "\tLongest : " << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e) {
+			std::cout << "ERROR : " << e.what << std::endl;
+		}
 	}
 	{
 		std::cout << "With 10000 numbers" << std::endl;
@@ -41,9 +46,7 @@ int main() {
 		catch (std::exception &e) {
 			std::cout << "ERROR : " << e.what() << std::endl;
 		}
-
 		lot.pop_back();
-
 		try {
 			sp.addNumbers(lot.begin(), lot.end());
 		}
@@ -51,7 +54,12 @@ int main() {
 			std::cout << "ERROR : " << e.what() << std::endl;
 		}
 
-		std::cout << "\tShortest : " << sp.shortestSpan() << std::endl;
-		std::cout << "\tLongest : " << sp.longestSpan() << std::endl;
+		try {
+			std::cout << "\tShortest : " << sp.shortestSpan() << std::endl;
+			std::cout << "\tLongest : " << sp.longestSpan() << std::endl;
+		}
+		catch (std::exception &e) {
+			std::cout << "ERROR : " << e.what << std::endl;
+		}
 	}
 }

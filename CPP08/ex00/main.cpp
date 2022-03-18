@@ -1,26 +1,46 @@
 #include "easyfind.hpp"
 #include <iostream>
 #include <vector>
+#include <list>
 
 int	main()
 {
-	std::vector<int>			tab;
-	std::vector<int>::iterator	it;
-
 	{
-		for (int i = 1; i < 100; i += 3)
+		std::cout << "TESTING WITH VECTOR :" << std::endl;
+		std::vector<int> tab;
+		bool isFind;
+
+		for (int i = 1; i < 50; i++)
 			tab.push_back(i);
-		it = easyfind(tab, 36);
-		if (it == tab.end())
+		isFind = easyfind(tab, 42);
+		if (!isFind)
 			std::cout << "Value not found in container" << std::endl;
 		else
-			std::cout << "Value found in container : " << &it << std::endl;
+			std::cout << "Value found in container" << std::endl;
+
+		isFind = easyfind(tab, 62);
+		if (!isFind)
+			std::cout << "Value not found in container" << std::endl;
+		else
+			std::cout << "Value found in container" << std::endl;
 	}
 	{
-		it = easyfind(tab, 37);
-		if (it == tab.end())
+		std::cout << "\nTESTING WITH LIST :" << std::endl;
+		std::list<int> tab;
+		bool isFind;
+
+		for (int i = 1; i < 50; i++)
+			tab.push_back(i);
+		isFind = easyfind(tab, 42);
+		if (!isFind)
 			std::cout << "Value not found in container" << std::endl;
 		else
-			std::cout << "Value found in container : " << &it << std::endl;
+			std::cout << "Value found in container" << std::endl;
+
+		isFind = easyfind(tab, 62);
+		if (!isFind)
+			std::cout << "Value not found in container" << std::endl;
+		else
+			std::cout << "Value found in container" << std::endl;
 	}
 }
